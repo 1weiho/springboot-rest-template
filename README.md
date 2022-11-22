@@ -1,4 +1,4 @@
-# REST API TEMPLATE
+# Spring Boot Rest API Template
 Rest API template for Spring Boot
 
 ## API List
