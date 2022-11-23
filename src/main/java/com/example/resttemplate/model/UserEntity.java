@@ -1,4 +1,4 @@
-package com.example.resttemplate.database;
+package com.example.resttemplate.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
