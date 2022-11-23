@@ -1,10 +1,13 @@
 package com.example.resttemplate;
 
+import com.example.resttemplate.model.UserEntity;
 import com.example.resttemplate.model.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class Controller {
@@ -17,16 +20,16 @@ public class Controller {
     }
 
     @GetMapping("/users/{name}")
-    public String getUserByName(@PathVariable(value = "name") String name) {
+    public UserEntity getUserByName(@PathVariable(value = "name") String name) {
 
-        return userRepo.findByName(name).toString();
+        return userRepo.findByName(name);
 
     }
 
     @GetMapping("/users/all")
-    public String getAllUsers() {
+    public List<UserEntity> getAllUsers() {
 
-        return userRepo.findAll().toString();
+        return userRepo.findAll();
 
     }
 }
