@@ -17,11 +17,11 @@ api/users/{userID}
 ```
 api/users/add
 ```
-- Request Headers:
+- Request Headers
 ```
 Content-Type application/json
 ```
-- Request Body:
+- Request Body
 ```json
 {
   "userID": 1,
