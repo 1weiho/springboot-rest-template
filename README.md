@@ -15,7 +15,7 @@ api/users/{userID}
 
 ### `POST` Add user
 ```
-http://localhost:8080/api/users/add
+api/users/add
 ```
 - Request Headers:
 ```
