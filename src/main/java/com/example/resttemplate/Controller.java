@@ -17,10 +17,10 @@ public class Controller {
         this.userRepo = userRepo;
     }
 
-    @GetMapping("/users/{name}")
-    public UserEntity getUserByName(@PathVariable(value = "name") String name) {
+    @GetMapping("/users/{userID}")
+    public UserEntity getUserByUserID(@PathVariable(value = "userID") Integer userID) {
 
-        return userRepo.findByName(name);
+        return userRepo.findByUserID(userID);
 
     }
 
