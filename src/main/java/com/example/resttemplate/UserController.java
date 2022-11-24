@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class Controller {
+public class UserController {
 
     UserRepo userRepo;
 
     @Autowired
-    public Controller(UserRepo userRepo) {
+    public UserController(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
 
