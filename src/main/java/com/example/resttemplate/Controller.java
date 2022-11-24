@@ -30,4 +30,13 @@ public class Controller {
         return userRepo.findAll();
 
     }
+
+    @PostMapping("/users/add")
+    public String addUser(@RequestBody UserEntity userEntity) {
+
+        userRepo.save(userEntity);
+
+        return "User: " + userEntity.getName() + " added successfully";
+
+    }
 }
