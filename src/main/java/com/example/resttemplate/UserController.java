@@ -1,42 +1,49 @@
 package com.example.resttemplate;
 
-import com.example.resttemplate.model.UserEntity;
-import com.example.resttemplate.model.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.resttemplate.model.User;
+import com.example.resttemplate.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
-    UserRepo userRepo;
+    final UserService userService;
 
-    @Autowired
-    public UserController(UserRepo userRepo) {
-        this.userRepo = userRepo;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
-    @GetMapping("/users/{userID}")
-    public UserEntity getUserByUserID(@PathVariable(value = "userID") Integer userID) {
+    @GetMapping("/{id}")
+    public ResponseEntity<User> get(@PathVariable Integer id) {
+        try {
+            User user = userService.getUser(id);
+            return new ResponseEntity<User>(user, HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+        }
+    }
 
-        return userRepo.findByUserID(userID);
+    @PostMapping("/")
+    public void add(@RequestBody User user) {
+        userService.saveUser(user);
+    }
+
+    @GetMapping("")
+    public List<User> list() {
+        return userService.listAllUser();
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+
+        userService.deleteUser(id);
 
     }
 
-    @GetMapping("/users/all")
-    public List<UserEntity> getAllUsers() {
-
-        return userRepo.findAll();
-
-    }
-
-    @PostMapping("/users/add")
-    public String addUser(@RequestBody UserEntity userEntity) {
-
-        userRepo.save(userEntity);
-
-        return "User: " + userEntity.getName() + " added successfully";
-
-    }
 }
