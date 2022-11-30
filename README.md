@@ -5,7 +5,7 @@ Rest API template for Spring Boot
 
 ### `GET` Get all users
 ```
-api/users/all
+api/users/
 ```
 
 ### `GET` Get user info by user ID
@@ -15,7 +15,7 @@ api/users/{userID}
 
 ### `POST` Add user
 ```
-api/users/add
+api/users/
 ```
 - Request Headers
 ```
@@ -24,8 +24,12 @@ Content-Type application/json
 - Request Body
 ```json
 {
-  "userID": 1,
   "name": "User",
   "email": "user@mail.com"
 }
+```
+
+### `DELETE` Delete user by user ID
+```
+api/users/{userID}
 ```
