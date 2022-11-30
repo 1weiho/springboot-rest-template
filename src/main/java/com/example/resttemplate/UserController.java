@@ -34,7 +34,7 @@ public class UserController {
         userService.saveUser(user);
     }
 
-    @GetMapping("")
+    @GetMapping("/")
     public List<User> list() {
         return userService.listAllUser();
     }
