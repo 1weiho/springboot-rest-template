@@ -1,6 +1,6 @@
 package com.example.resttemplate.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users", schema = "rest-template")

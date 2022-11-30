@@ -4,7 +4,7 @@ import com.example.resttemplate.model.User;
 import com.example.resttemplate.repo.UserRepo;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.List;
 
 @Service
