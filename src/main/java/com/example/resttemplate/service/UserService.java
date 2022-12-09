@@ -21,8 +21,8 @@ public class UserService {
         return userRepo.findById(id).get();
     }
 
-    public void saveUser(UserEntity user) {
-        userRepo.save(user);
+    public UserEntity saveUser(UserEntity user) {
+        return userRepo.save(user);
     }
 
     public List<UserEntity> listAllUser() {

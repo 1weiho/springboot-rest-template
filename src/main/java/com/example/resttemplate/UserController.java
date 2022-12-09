@@ -30,8 +30,13 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public void add(@RequestBody UserEntity user) {
-        userService.saveUser(user);
+    public ResponseEntity<UserEntity> add(@RequestBody UserEntity newUser) {
+        try {
+            UserEntity user = userService.saveUser(newUser);
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/")
