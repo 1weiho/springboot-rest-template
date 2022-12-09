@@ -1,4 +1,4 @@
-package com.example.resttemplate;
+package com.example.resttemplate.controller;
 
 import com.example.resttemplate.model.UserEntity;
 import com.example.resttemplate.service.UserService;
