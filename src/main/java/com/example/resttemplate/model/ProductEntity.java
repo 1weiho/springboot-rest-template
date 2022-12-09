@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 @Table(name = "product", schema = "rest-template")
 public class ProductEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Integer price;
@@ -19,8 +21,6 @@ public class ProductEntity {
         this.price = price;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }

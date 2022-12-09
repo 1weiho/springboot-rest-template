@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 @Table(name = "users", schema = "rest-template")
 public class UserEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String email;
@@ -19,8 +21,6 @@ public class UserEntity {
         this.email = email;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
