@@ -25,8 +25,8 @@ public class UserEntity {
         return id;
     }
 
-    public void setId(Integer userID) {
-        this.id = userID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
