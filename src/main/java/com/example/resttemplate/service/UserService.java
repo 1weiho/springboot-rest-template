@@ -1,6 +1,6 @@
 package com.example.resttemplate.service;
 
-import com.example.resttemplate.model.User;
+import com.example.resttemplate.model.UserEntity;
 import com.example.resttemplate.repo.UserRepo;
 import org.springframework.stereotype.Service;
 
@@ -17,15 +17,15 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
-    public User getUser(Integer id) {
+    public UserEntity getUser(Integer id) {
         return userRepo.findById(id).get();
     }
 
-    public void saveUser(User user) {
+    public void saveUser(UserEntity user) {
         userRepo.save(user);
     }
 
-    public List<User> listAllUser() {
+    public List<UserEntity> listAllUser() {
         return userRepo.findAll();
     }
 

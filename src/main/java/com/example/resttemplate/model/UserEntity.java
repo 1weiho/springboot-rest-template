@@ -4,16 +4,16 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users", schema = "rest-template")
-public class User {
+public class UserEntity {
 
     private Integer id;
     private String name;
     private String email;
 
-    public User() {
+    public UserEntity() {
     }
 
-    public User(Integer id, String name, String email) {
+    public UserEntity(Integer id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;

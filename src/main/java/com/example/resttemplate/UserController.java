@@ -1,6 +1,6 @@
 package com.example.resttemplate;
 
-import com.example.resttemplate.model.User;
+import com.example.resttemplate.model.UserEntity;
 import com.example.resttemplate.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,22 +20,22 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> get(@PathVariable Integer id) {
+    public ResponseEntity<UserEntity> get(@PathVariable Integer id) {
         try {
-            User user = userService.getUser(id);
-            return new ResponseEntity<User>(user, HttpStatus.OK);
+            UserEntity user = userService.getUser(id);
+            return new ResponseEntity<UserEntity>(user, HttpStatus.OK);
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<UserEntity>(HttpStatus.NOT_FOUND);
         }
     }
 
     @PostMapping("/")
-    public void add(@RequestBody User user) {
+    public void add(@RequestBody UserEntity user) {
         userService.saveUser(user);
     }
 
     @GetMapping("/")
-    public List<User> list() {
+    public List<UserEntity> list() {
         return userService.listAllUser();
     }
 
