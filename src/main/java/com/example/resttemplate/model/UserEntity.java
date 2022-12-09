@@ -12,13 +12,18 @@ public class UserEntity {
     private String name;
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private ProductEntity product;
+
     public UserEntity() {
     }
 
-    public UserEntity(Integer id, String name, String email) {
+    public UserEntity(Integer id, String name, String email, ProductEntity product) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.product = product;
     }
 
     public Integer getId() {
@@ -44,4 +49,13 @@ public class UserEntity {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public ProductEntity getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductEntity product) {
+        this.product = product;
+    }
+
 }
